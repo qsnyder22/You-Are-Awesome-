@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var playSoundSwitch: UISwitch!
+    
     var imageNumber = 0
     var messageNumber = 0
     let totalNumberOfImages = 9
@@ -57,8 +59,17 @@ class ViewController: UIViewController {
             }
         } else {
             print("Error: Could not read data from file sound(0)")
+           
         }
+        
+    }
+    @IBAction func playSoundToggled(_ sender: UISwitch) {
+        if !sender.isOn == false { // if the .isOn is NOT true
+            audioPlayer.stop()
             
+        }
+    }
+    
         
 //        messageLabel.text = messages[messageNumber]
 //        messageNumber += 1
@@ -93,4 +104,4 @@ class ViewController: UIViewController {
 }
 
 
-}
+
